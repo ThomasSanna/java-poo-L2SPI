@@ -1,0 +1,62 @@
+package exercice1;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class QuizzGUI extends JFrame {
+
+    private Quizz quizz;
+
+    public QuizzGUI(String titre, String auteur) {
+        quizz = new Quizz(titre, auteur);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Quizz - " + titre);
+        setSize(500, 400);
+
+        initUI();
+    }
+
+    private void initUI() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+
+        JTextArea questionArea = new JTextArea();
+        JButton nextButton = new JButton("Suivant");
+        JButton submitButton = new JButton("Soumettre");
+
+        panel.add(questionArea, BorderLayout.CENTER);
+        panel.add(nextButton, BorderLayout.WEST);
+        panel.add(submitButton, BorderLayout.EAST);
+
+        nextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Logique pour passer à la question suivante
+                // Vous devrez implémenter cela en fonction de votre modèle de données
+            }
+        });
+
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Logique pour soumettre les réponses et afficher les résultats
+                // Vous devrez implémenter cela en fonction de votre modèle de données
+            }
+        });
+
+        setContentPane(panel);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new QuizzGUI("Mon Quizz", "Moi");
+            }
+        });
+    }
+}

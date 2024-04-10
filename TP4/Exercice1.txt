@@ -1,0 +1,17 @@
+Question 1
+
+	L'exécution de la classe TestEntreprise provoque une erreur 
+"Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.util.ArrayList.add(Object)" because "this.employes" is null"
+car on n'a pas initialisé la Liste d'employés lors de la création d'une entreprise.
+Il faut modifier le constructeur par :
+
+	public Entreprise(String nom){
+		this.nom=nom;
+		this.employes = new ArrayList<>();
+	}
+
+Question 3
+
+b. Il m'a été nécessaire de modifier la méthode embaucher. En effet, j'ai créé une variable d'instance "totalEmployes" qui compte le nombre d'employer dans une entreprise. Cette variable m'a servi comme index effectif de mon tableau de Personne "employes", ce qui m'a aider à ajouter de nouveaux employés dans ce même tableau.
+
+c. Avec la création de totalEmployes, j'ai alors remplacé employes.size() de la methode sommeSalaire1 par totalEmployes, pour obtenir la longueur effective du tableau.
